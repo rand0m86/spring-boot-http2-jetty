@@ -46,9 +46,8 @@ public class JettyHttp2Customizer implements EmbeddedServletContainerCustomizer 
                 } else {
                     HTTP2CServerConnectionFactory h2cServerConnectionFactory = new HTTP2CServerConnectionFactory(httpConfiguration);
                     HttpConnectionFactory h1ConnectionFactory = new HttpConnectionFactory(httpConfiguration);
-                    ServerConnector serverConnector = new ServerConnector(server, new ConnectionFactory[]{
-                            h1ConnectionFactory,
-                            h2cServerConnectionFactory});
+                    ServerConnector serverConnector = new ServerConnector(server, h1ConnectionFactory,
+                            h2cServerConnectionFactory);
                     serverConnector.setPort(port);
                     // override existing connectors with new ones
                     server.setConnectors(new Connector[]{serverConnector});

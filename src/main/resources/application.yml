@@ -11,3 +11,7 @@ server:
     enabled: true
     mime-types: application/json,text/css,application/javascript,text/html
     min-response-size: 2048
+logging:
+  level:
+    org.eclipse.jetty.server: DEBUG
+    com.example: DEBUG
